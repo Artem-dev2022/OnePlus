@@ -1,0 +1,17 @@
+table {
+    margin: 50px auto 0 auto;
+    width: 500px;
+    border: 1px solid;
+}
+
+th {
+    padding: 5px 10px;
+    background-color: rgb(176, 244, 51);
+    border: 1px solid;
+}
+
+td {
+    padding: 5px 10px;
+    text-align: center;
+    border: 1px solid;
+}

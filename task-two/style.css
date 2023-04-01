@@ -1,0 +1,657 @@
+@font-face {
+    font-family: 'Rubik';
+    src: url('./fonts/Rubik-Regular.woff2') format('woff2'), url('./fonts/Rubik-Regular.woff') format('woff');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Rubik';
+    src: url('./fonts/Rubik-Medium.woff2') format('woff2'), url('./fonts/Rubik-Medium.woff') format('woff');
+    font-display: swap;
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Istok Web';
+    src: url('./fonts/IstokWeb-Regular.woff') format('woff');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Istok Web';
+    src: url('./fonts/IstokWeb-Bold.woff') format('woff');
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    outline: none;
+}
+
+p, ul {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+body {
+    font-family: 'Rubik';
+}
+
+.container {
+    width: 1416px;
+    max-width: 1416px;
+    margin: 0 auto;
+}
+
+.header {
+    margin: 18px 0 40px 0;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__left {
+    display: flex;
+    align-items: center;
+}
+
+.header__logo {
+    height: 103px;
+    width: 222px;
+    margin-right: 22px;
+}
+
+.search {
+    position: relative;
+    height: 60px;
+    width: 574px;
+}
+
+.search__icon {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+}
+
+.search__input {
+    font-family: 'Rubik';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 100px;
+    padding: 16px 50px;
+}
+
+.header__right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header__button {
+    font-family: 'Rubik';
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 24px;
+    width: 190px;
+    height: 60px;
+    border-radius: 30px;
+    border: none;
+    padding: 16px;
+}
+
+.header__button--border {
+    background-color: white;
+    border: 2px solid #FDD446;
+}
+
+.header__button--bg {
+    background: #FDD446;
+}
+
+
+.top-bar {
+    margin-bottom: 40px;
+}
+
+.top-bar__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-bar__search {
+    width: 814px;
+}
+
+.select {
+    position: relative;
+    width: 216px;
+    height: 40px;
+}
+
+.select__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    font-family: 'Rubik';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.select__dropdown-filter {
+    padding: 20px 20px 30px 20px;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 346px;
+    height: 1350px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.filter__item {
+    margin-bottom: 40px;
+}
+
+.filter__item__title {
+    font-family: 'Rubik';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    margin-bottom: 0;
+}
+
+.filter__item__inputs {
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter__item__input {
+    width: 100px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.filter__line {
+    display: block;
+    height: 1px;
+    width: 30px;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.6);
+    margin: 1em 0;
+    padding: 0;
+}
+
+.filter__item__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+#range-slider {
+    width: 100%;
+    height: 3px;
+}
+
+.noUi-target{
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+.noUi-base {
+    background-color: transparent;
+}
+
+.noUi-connects {
+    height: 2px;
+    border: none;
+    background-color: white;
+}
+
+.noUi-connect {
+    height: 3px;
+    background-color: rgba(0, 0, 0, 0.6);
+    transition: background-color 0.3s ease;
+}
+
+.noUi-horizontal .noUi-handle {
+    top: -8px;
+    cursor: pointer;
+}
+
+.noUi-handle{
+    box-shadow: none;
+    width: 20px !important;
+    height: 20px !important;
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    transition: all 0.3s ease;
+}
+
+.noUi-handle-lower {
+    right: -20px !important;
+    background-image: url('./img/handle-left.svg');
+}
+
+.noUi-handle-upper {
+    right: -5px !important;
+    background-image: url('./img/handle-right.svg');
+}
+
+.noUi-touch-area {
+    display: none;
+}
+
+.noUi-handle::before,
+.noUi-handle::after {
+    display: none;
+}
+
+.filter__item__inputs__checkboxes {
+    flex-direction: column;
+}
+.filter__item__checkbox {
+    opacity: 0;
+}
+.filter__item__label {
+    display: flex;
+    margin-bottom: 12px;
+    transform: translateX(-11px);
+}
+.filter__item__checkbox__title {
+    font-family: 'Rubik';
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.check {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 2px;
+    margin-right: 11px;
+    transform: translateY(2px);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+.check:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 1px;
+    right: 0;
+    bottom: 0;
+}
+.filter__item__checkbox:checked + .check:before {
+    background-image: url('img/check.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.filter__item__checkbox:checked .filter__item__checkbox__title {
+    color: red;
+}
+
+.filter__btn {
+    margin: auto auto 0 auto;
+    width: 265px;
+    height: 53px;
+    background: #FDD446;
+    border-radius: 20px;
+}
+
+.select--sort {
+    width: 335px;
+}
+
+.select__dropdown-sort {
+    position: absolute;
+    width: 344px;
+    height: fit-content;
+    right: 0px;
+    top: 0px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 20;
+    overflow: hidden;
+}
+
+.select__dropdown-sort__list {
+    display: flex;
+    flex-direction: column;
+}
+
+.select__dropdown-sort__item {
+    padding: 6px 10px 8px 30px;
+    font-family: 'Rubik';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+    cursor: pointer;
+}
+
+.select__dropdown-sort__item:hover {
+    background-color: #FDD446;
+}
+
+.select__dropdown-sort__item--active {
+    background-position: 9px center;
+    background-image: url('./img/check.png');
+}
+
+.select__dropdown--active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.products {
+    margin-bottom: 160px;
+}
+
+.products__list {
+    margin-bottom: 50px;
+}
+
+.products__card {
+    display: flex;
+    flex-direction: column;
+    padding: 12px 12px 19px 12px;
+    min-height: 630px;
+    width: 312px;
+    border: 1px solid rgba(48, 47, 46, 0.7);
+}
+
+.products__card__img {
+    width: 100%;
+    height: 321px;
+}
+
+.products__card__status {
+    font-family: 'Istok Web';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 50px;
+}
+
+.products__card__person {
+    gap: 8px;
+    display: flex;
+    margin-bottom: 11px;
+}
+
+.products__card__avatar {
+    width: 70px;
+    height: 70px;
+}
+
+.products__card__name {
+    font-family: 'Rubik';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+}
+
+.products__card__checked {
+    padding-right: 30px;
+    font-family: 'Rubik';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    color: #FF9900;
+    background-image: url('./img/checked.png');
+    background-position: right center;
+}
+
+.products__card__characteristic {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: fit-content;
+}
+
+.products__card__characteristic:first-child {
+    margin-bottom: 10px;
+}
+
+.products__card__characteristic__title {
+    font-family: 'Rubik';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.products__card__characteristic__value {
+    font-family: 'Rubik';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.products__card__characteristic__value--border {
+    position: relative;
+    background-color: white;
+    border-radius: 8px;
+    width: 130px;
+    height: 30px;
+    text-align: center;
+}
+
+.products__card__characteristic__value--border::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -2px;
+    right: -2.3px;
+    bottom: -2px;
+    left: -2.3px;
+    background: linear-gradient(180deg, #FFC107 0%, #EC851A 100%);
+    border-radius: 10px;
+    z-index: -1;
+}
+
+.products__card__characteristic__value--bg {
+    width: 110px;
+    height: 30px;
+    background: #FDD446;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.products__card__btn {
+    margin: auto auto 0 auto;
+    height: 53px;
+    width: 265px;
+    padding: 9px 0;
+    background: linear-gradient(90deg, #FDD446 0%, #F79B47 100%);
+    border-radius: 20px;
+    border: none;
+    font-family: 'Istok Web';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.products__pagination {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.products__pagination__btn {
+    font-family: 'Istok Web';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 38px;
+}
+
+.products__pagination__arrow--left{
+    margin-right: 7px;
+}
+
+.products__pagination__arrow--right {
+    margin-left: 7px;
+}
+
+.products__pagination__item {
+    font-family: 'Istok Web';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 45px;
+    margin: 0 15px;
+}
+
+.products__pagination__item--active {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: #FDD446;
+    text-align: center;
+    line-height: 42px;
+    margin: 0 5px;
+}
+
+.footer {
+    padding: 36px 0 0 0;
+    background: #FDD446;
+}
+
+.footer__container {
+    padding: 0 65px 0 56px;
+}
+
+.footer__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 43px;
+}
+
+.footer__logo {
+    margin-bottom: 15px;
+}
+
+.footer__text {
+    font-family: 'Rubik';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.footer__address {
+    margin-bottom: 8px;
+    line-height: 40px;
+}
+
+.footer__email {
+    margin-bottom: 40px;
+}
+
+
+.footer__social {
+    display: flex;
+    gap: 25px;
+}
+
+.footer__social__link {
+    display: block;
+}
+
+.footer__right {
+    display: flex;
+    gap: 80px;
+    padding-top: 6px;
+}
+
+.footer__list--1 {
+    width: 123px;
+}
+
+.footer__list--2 {
+    width: 160px;
+}
+
+.footer__list--3 {
+    width: 190px;
+}
+
+.footer__item {
+    margin-bottom: 6px;
+}
+
+.footer__item--title {
+    font-family: 'Istok Web';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    margin-bottom: 22px;
+}
+
+.footer__bottom {
+    position: relative;
+    border-top: 1px solid rgba(0, 0, 0, 0.5);
+    padding-top: 20px;
+    height: 85px;
+}
+
+.footer__star {
+    position: absolute;
+    margin: 0 auto;
+    bottom: 4px;
+    left: 0;
+    right: 0;
+}
+
+.footer__company {
+    margin: auto;
+    margin-right: 0;
+    width: 165px;
+    color: rgba(0, 0, 0, 0.5);
+}
