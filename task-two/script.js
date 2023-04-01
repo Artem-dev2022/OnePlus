@@ -9,8 +9,8 @@ noUiSlider.create(slider, {
     }
 });
 
-const selectFilter = document.querySelector('.select--filter');
-const selectSort = document.querySelector('.select--sort');
+const selectFilter = document.querySelector('.select__button--filter');
+const selectSort = document.querySelector('.select__button--sort');
 
 const selectBtnSort = document.querySelector('.select__button--sort span');
 
@@ -38,5 +38,6 @@ sortItem.forEach(item => {
         resetSortItems();
         item.classList.add('select__dropdown-sort__item--active');
         selectBtnSort.textContent = item.textContent;
+        selectDropdownSort.classList.remove('select__dropdown--active');
     })
 })
