@@ -5,239 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TNFT.ru</title>
-    <link rel="stylesheet" href="reset.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.css" rel="stylesheet"> 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <header class="header">
         <div class="container header__container">
-            <div class="header__left">
-                <img class="header__logo logo" src="img/logo.png" alt="лого">
-                <div class="header__search search">
-                    <svg class="header__icon search__icon" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M10.031 19.4535C14.4492 19.4535 18.0308 15.8 18.0308 11.2932C18.0308 6.78633 14.4492 3.13281 10.031 3.13281C5.61288 3.13281 2.03125 6.78633 2.03125 11.2932C2.03125 15.8 5.61288 19.4535 10.031 19.4535Z" stroke="#FDD446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M20.0296 21.4919L15.6797 17.0547" stroke="#FDD446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    <input class="header__input search__input" type="text" placeholder="Поиск...">
-                </div>
+            <img class="header__logo logo" src="img/logo.png" alt="лого">
+            <div class="header__search">
+                <input type="text" class="header__input" value="Анастасия">
+                <svg class="header__icon" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.031 19.4535C14.4492 19.4535 18.0308 15.8 18.0308 11.2932C18.0308 6.78633 14.4492 3.13281 10.031 3.13281C5.61288 3.13281 2.03125 6.78633 2.03125 11.2932C2.03125 15.8 5.61288 19.4535 10.031 19.4535Z" stroke="#FDD446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M20.0296 21.4919L15.6797 17.0547" stroke="#FDD446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <ul class="header__search__list">
+                    <li class="header__search__item header__search__item--active">
+                        <img class="header__search__avatar" src="./img/ivleeva.jpg" alt="Анастасия Ивлеева">
+                        <span class="header__search__name">Анастасия Ивлеева</span>
+                    </li>
+                    <li class="header__search__item">
+                        <img class="header__search__avatar" src="./img/zadorozhnaya.jpg" alt="Анастасия Задорожная">
+                        <span class="header__search__name">Анастасия Задорожная</span>
+                    </li>
+                    <li class="header__search__item">
+                        <img class="header__search__avatar" src="./img/makeeva.jpg" alt="Анастасия Макеева">
+                        <span class="header__search__name">Анастасия Макеева</span>
+                    </li>
+                </ul>
             </div>
-            <div class="header__right">
-                <button class="header__button header__button--border">Вход</button>
-                <button class="header__button header__button--bg">Регистрация</button>
-            </div>
-            
         </div>
     </header>
 
     <section class="top-bar">
         <div class="container top-bar__container">
-            <div class="select select--filter">
-                <div class="select__button select__button--filter">
-                    Фильтры
-                    <svg class="select__icon" width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.5 12L12.9952 0.75H0.00480938L6.5 12Z" fill="#FDD446"/>
-                    </svg>
-                </div>
-                <div class="select__dropdown-filter filter">
-                    <div class="filter__item">
-                        <div class="filter__item__top">
-                            <h2 class="filter__item__title">Цена</h2>
-                            <button>
-                                <svg width="16" height="3" viewBox="0 0 16 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0.988281 1.5H15.9883" stroke="#FDD446" stroke-width="3"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div id="slider"></div>
-                        <div class="filter__item__inputs">
-                            <input class="filter__item__input" type="number" placeholder="500 ₽">
-                            <hr class="filter__line">
-                            <input class="filter__item__input" type="number" placeholder="1000000 ₽">
-                        </div>
-                    </div>
-                    <div class="filter__item">
-                        <div class="filter__item__top">
-                            <h2 class="filter__item__title">Категории</h2>
-                            <button>
-                                <svg width="16" height="3" viewBox="0 0 16 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0.988281 1.5H15.9883" stroke="#FDD446" stroke-width="3"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="filter__item__inputs filter__item__inputs__checkboxes">
-                            <label for="checkbox-1" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-1">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Премиум</p>
-                            </label>
-                            <label for="checkbox-2" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-2">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Искусство</p>
-                            </label>
-                            <label for="checkbox-3" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-3">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Знаменитости</p>
-                            </label>
-                            <label for="checkbox-4" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-4">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Киберспорт</p>
-                            </label>
-                            <label for="checkbox-5" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-5">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Благотворительность</p>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="filter__item">
-                        <div class="filter__item__top">
-                            <h2 class="filter__item__title">Типы файлов</h2>
-                            <button>
-                                <svg width="16" height="3" viewBox="0 0 16 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0.988281 1.5H15.9883" stroke="#FDD446" stroke-width="3"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="filter__item__inputs filter__item__inputs__checkboxes">
-                            <label for="checkbox-6" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-6">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Изображения</p>
-                            </label>
-                            <label for="checkbox-7" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-7">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Видео</p>
-                            </label>
-                            <label for="checkbox-8" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-8">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Аудио</p>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="filter__item">
-                        <div class="filter__item__top">
-                            <h2 class="filter__item__title">Типы продаж</h2>
-                            <button>
-                                <svg width="16" height="3" viewBox="0 0 16 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0.988281 1.5H15.9883" stroke="#FDD446" stroke-width="3"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="filter__item__inputs filter__item__inputs__checkboxes">
-                            <label for="checkbox-9" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-9">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Фикс. цена</p>
-                            </label>
-                            <label for="checkbox-10" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-10">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Аукцион активен</p>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="filter__item">
-                        <div class="filter__item__top">
-                            <h2 class="filter__item__title">Сеть NFT</h2>
-                            <button>
-                                <svg width="16" height="3" viewBox="0 0 16 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0.988281 1.5H15.9883" stroke="#FDD446" stroke-width="3"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="filter__item__inputs filter__item__inputs__checkboxes">
-                            <label for="checkbox-11" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-11">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">ETH</p>
-                            </label>
-                            <label for="checkbox-12" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-12">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">BNB</p>
-                            </label>
-                            <label for="checkbox-13" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-13">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">USDC</p>
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="filter__item">
-                        <div class="filter__item__top">
-                            <h2 class="filter__item__title">Редкость</h2>
-                            <button>
-                                <svg width="16" height="3" viewBox="0 0 16 3" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0.988281 1.5H15.9883" stroke="#FDD446" stroke-width="3"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="filter__item__inputs filter__item__inputs__checkboxes">
-                            <label for="checkbox-14" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-14">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Уникальная</p>
-                            </label>
-                            <label for="checkbox-15" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-15">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Редкая</p>
-                            </label>
-                            <label for="checkbox-16" class="filter__item__label">
-                                <input class="filter__item__checkbox" type="checkbox" id="checkbox-16">
-                                <div class="check"></div>
-                                <p class="filter__item__checkbox__title">Эпическая</p>
-                            </label>
-                        </div>
-                    </div>
-
-                    <button class="filter__btn">Применить</button>
-                </div>
-            </div>
-            <div class="top-bar__search search">
-                <svg class="search__icon" width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.031 19.4535C14.4492 19.4535 18.0308 15.8 18.0308 11.2932C18.0308 6.78633 14.4492 3.13281 10.031 3.13281C5.61288 3.13281 2.03125 6.78633 2.03125 11.2932C2.03125 15.8 5.61288 19.4535 10.031 19.4535Z" stroke="#FDD446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M20.0296 21.4919L15.6797 17.0547" stroke="#FDD446" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <button class="top-bar__btn">
+                Фильтры
+                <svg class="select__icon" width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.5 12L12.9952 0.75H0.00480938L6.5 12Z" fill="#FDD446"/>
                 </svg>
-                <input class="search__input" type="text" placeholder="Поиск...">
-            </div>
-
-            <div class="select select--sort">
-                <div class="select__button select__button--sort">
-                    <span>По умолчанию</span> 
-                    <svg class="select__icon" width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M6.5 12L12.9952 0.75H0.00480938L6.5 12Z" fill="#FDD446"/>
-                    </svg>
-                </div>
-                <div class="select__dropdown-sort">
-                    <ul class="select__dropdown-sort__list">
-                        <li class="select__dropdown-sort__item select__dropdown-sort__item--active">По умолчанию</li>
-                        <li class="select__dropdown-sort__item">По дате</li>
-                        <li class="select__dropdown-sort__item">Дешевле</li>
-                        <li class="select__dropdown-sort__item">Дороже</li>
-                        <li class="select__dropdown-sort__item">По популярности</li>
-                    </ul>
-                </div>
-            </div>
+            </button>
+            <button class="top-bar__btn">
+                <span>По умолчанию</span> 
+                <svg class="select__icon" width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.5 12L12.9952 0.75H0.00480938L6.5 12Z" fill="#FDD446"/>
+                </svg>
+            </button>
         </div>
     </section>
 
     <section class="products">
         <div class="container products__container">
             <div class="products__list">
-                <div class="row gx-5 gy-5">
-                    <div class="col-3">
+                <div class="row">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -261,79 +81,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -357,79 +105,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -453,79 +129,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -549,79 +153,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -645,79 +177,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -741,79 +201,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -837,79 +225,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -933,79 +249,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -1029,79 +273,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -1125,79 +297,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -1221,79 +321,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -1317,79 +345,7 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
-                            <p class="products__card__status">Без слов</p>
-                            <div class="products__card__person">
-                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
-                                <div class="products__card__person__right">
-                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
-                                    <span class="products__card__checked">проверено</span>
-                                </div>
-                            </div>
-                            <div class="products__card__characteristics">
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
-                                    </div>
-                                    <div class="products__card__characteristic">
-                                        <h4 class="products__card__characteristic__title">Цена:</h4>
-                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
-                                    </div>
-                                </div>
-                            <button class="products__card__btn">Купить</button>
-                        </div>
-                    </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
                             <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
@@ -1413,9 +369,9 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-2.jpg" alt="Настя Ивлеева">
+                            <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
                             <div class="products__card__person">
                                 <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
@@ -1437,9 +393,9 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-3.jpg" alt="Настя Ивлеева">
+                            <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
                             <div class="products__card__person">
                                 <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
@@ -1461,9 +417,57 @@
                             <button class="products__card__btn">Купить</button>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-4">
                         <div class="products__card">
-                            <img class="products__card__img" src="img/ivleeva-4.jpg" alt="Настя Ивлеева">
+                            <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
+                            <p class="products__card__status">Без слов</p>
+                            <div class="products__card__person">
+                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
+                                <div class="products__card__person__right">
+                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
+                                    <span class="products__card__checked">проверено</span>
+                                </div>
+                            </div>
+                            <div class="products__card__characteristics">
+                                    <div class="products__card__characteristic">
+                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
+                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
+                                    </div>
+                                    <div class="products__card__characteristic">
+                                        <h4 class="products__card__characteristic__title">Цена:</h4>
+                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
+                                    </div>
+                                </div>
+                            <button class="products__card__btn">Купить</button>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="products__card">
+                            <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
+                            <p class="products__card__status">Без слов</p>
+                            <div class="products__card__person">
+                                <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
+                                <div class="products__card__person__right">
+                                    <h3 class="products__card__name">Настя Ивлеева Вячеславовна</h3>
+                                    <span class="products__card__checked">проверено</span>
+                                </div>
+                            </div>
+                            <div class="products__card__characteristics">
+                                    <div class="products__card__characteristic">
+                                        <h4 class="products__card__characteristic__title">Редкость:</h4>
+                                        <p class="products__card__characteristic__value products__card__characteristic__value--border">уникальная</p>
+                                    </div>
+                                    <div class="products__card__characteristic">
+                                        <h4 class="products__card__characteristic__title">Цена:</h4>
+                                        <p class="products__card__characteristic__value products__card__characteristic__value--bg">от 500 ₽</p>
+                                    </div>
+                                </div>
+                            <button class="products__card__btn">Купить</button>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="products__card">
+                            <img class="products__card__img" src="img/ivleeva-1.jpg" alt="Настя Ивлеева">
                             <p class="products__card__status">Без слов</p>
                             <div class="products__card__person">
                                 <img class="products__card__avatar" src="img/avatar.jpg" alt="аватар">
@@ -1486,7 +490,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
             <ul class="products__pagination">
                 <li class="products__pagination__arrow products__pagination__arrow--left">
@@ -1528,57 +531,40 @@
         </div>
     </section>
 
-
     <footer class="footer">
         <div class="container footer__container">
             <div class="footer__top">
-                <div class="footer__left">
-                    <img class="footer__logo" src="img/logo-mini.png" alt="лого">
-                    <p class="footer__address footer__text">Россия, г. Москва, 119002<br>ул. Арбат 51/1/8А</p>
-                    <p class="footer__email footer__text">
-                        e-mail:<br>
-                        <a href="mailto:info@lionmax.ru">info@lionmax.ru</a>
-                    </p>
-                    <div class="footer__social">
-                        <a class="footer__social__link" href="#">
-                            <img src="img/twitter.png" alt="twitter">
+                <ul class="footer__list footer__list--1">
+                    <li class="footer__item footer__item--title">NFT</li>
+                    <li class="footer__item footer__text"><a href="#">Что такое NFT</a></li>
+                    <li class="footer__item footer__text"><a href="#">Создайте NFT с нами</a></li>
+
+                    <li class="social">
+                        <a class="social__link" href="#">
+                            <img src="./img/twitter.png" alt="twitter">
                         </a>
-                        <a class="footer__social__link" href="#">
-                            <img src="img/vk.png" alt="vk">
+                        <a class="social__link" href="#">
+                            <img src="./img/vk.png" alt="vk">
                         </a>
-                    </div>
-                </div>
+                    </li>
+                </ul>
+                <ul class="footer__list footer__list--2">
+                    <li class="footer__item footer__item--title">Компания</li>
+                    <li class="footer__item footer__text"><a href="#">О нас</a></li>
+                    <li class="footer__item footer__text"><a href="#">Отправить запрос</a></li>
+                </ul>
 
-                <div class="footer__right">
-                    <ul class="footer__list footer__list--1">
-                        <li class="footer__item footer__item--title">NFT</li>
-                        <li class="footer__item footer__text"><a href="#">Что такое NFT</a></li>
-                        <li class="footer__item footer__text"><a href="#">Создайте NFT с нами</a></li>
-                    </ul>
-
-                    <ul class="footer__list footer__list--2">
-                        <li class="footer__item footer__item--title">Компания</li>
-                        <li class="footer__item footer__text"><a href="#">О нас</a></li>
-                        <li class="footer__item footer__text"><a href="#">Отправить запрос</a></li>
-                    </ul>
-
-                    <ul class="footer__list footer__list--3">
-                        <li class="footer__item footer__item--title">Другое</li>
-                        <li class="footer__item footer__text"><a href="#">Условия использования</a></li>
-                        <li class="footer__item footer__text"><a href="#">Политика конфиденциальности</a></li>
-                    </ul>
-
-                </div>
+                <ul class="footer__list footer__list--3">
+                    <li class="footer__item footer__item--title">Другое</li>
+                    <li class="footer__item footer__text"><a href="#">Условия использования</a></li>
+                    <li class="footer__item footer__text"><a href="#">Политика конфиденциальности</a></li>
+                </ul>
             </div>
-
             <div class="footer__bottom">
                 <p class="footer__company footer__text">@ tnft.ru Company, Inc</p>
                 <img class="footer__star" src="img/star-footer.png" alt="звезда">
             </div>
         </div>
     </footer>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.6.1/nouislider.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
